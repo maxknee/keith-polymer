@@ -1,0 +1,7 @@
+{
+  "name": "keith",
+  "short_name": "keith",
+  "description": "Keith Hatton Portfolio Site",
+  "start_url": "/",
+  "display": "standalone"
+}

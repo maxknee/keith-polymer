@@ -1,0 +1,29 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<dom-module id="kh-tabs">
+	<style>
+		:host {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+		}
+	.tab-header {
+		width: 100%;
+		max-width: 400px;
+		margin: auto;
+	}
+
+	a {
+		text-decoration: none;
+		color: lightblue;
+	}
+
+	</style>
+	<template>
+		<template is="dom-repeat" items="{{tabs}}">
+			<div class="tab-header">
+				<a href="{{item.link}}"><span>{{item.title}}</span></a>
+			</div>
+		</template>
+	</template>
+	<script src="kh-tabs.js"></script>
+</dom-module>

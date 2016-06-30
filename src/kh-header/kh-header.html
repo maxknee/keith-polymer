@@ -1,0 +1,20 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<dom-module id="kh-header">
+	<style>
+	:host {
+		display: flex;
+		justify-content: flex-end;
+		flex-flow: row wrap;
+	}
+
+	a .kh-header__header-image {
+		width: 40%;
+		float: right;
+	}
+	</style>
+
+	<template>
+		<a href="[[getLink()]]"><img class="kh-header__header-image" src="[[image]]" alt="Keith Logo"></a>
+	</template>
+	<script src="kh-header.js"></script>
+</dom-module>
