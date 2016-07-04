@@ -4,26 +4,76 @@
 		:host {
 			display: flex;
 			flex-direction: row;
-			justify-content: space-around;
+			justify-content: flex-start;
+			flex-wrap: wrap-reverse;
 		}
-	.tab-header {
-		width: 100%;
-		max-width: 400px;
-		margin: auto;
-	}
 
-	a {
-		text-decoration: none;
-		color: lightblue;
-	}
+		.tab-group {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+			position: relative;
+			display: inherit;
+		}
+
+		.tab-header {
+  		padding: 0 30px;
+			display: inline-block;
+  		position: relative;
+  		z-index: 0;
+  		border-top-left-radius: 8px;
+  		border-top-right-radius: 8px;
+		}
+
+		.tab-header:before,
+		.tab-header:after {
+		  position: absolute;
+		  top: -1px;
+		  width: 6px;
+		  height: 6px;
+		  content: "";
+		}
+
+		.tab-header:before {
+			position: absolute;
+  		content: "";
+  		width: 100%;
+		  top: 0;
+		  left: 0;
+		  z-index: 1;
+		}
+
+		.tab-header:before {
+			left: -7px;
+  		border-bottom-right-radius: 6px;
+  	}
+
+  	.tab-header:after {
+  		right: -7px;
+  		border-bottom-left-radius: 6px;
+  	}
+
+		a {
+			display: block;
+			text-decoration: none;
+			color: lightblue;
+			text-align: center;
+			font-size: 2.5rem;
+		}
 
 	</style>
+
 	<template>
-		<template is="dom-repeat" items="{{tabs}}">
-			<div class="tab-header">
-				<a href="{{item.link}}"><span>{{item.title}}</span></a>
-			</div>
-		</template>
+		<ul class="tab-group">
+			<template is="dom-repeat" items="{{tabs}}">
+				<li>
+					<div class$="tab-header {{toLowerCase(item.title)}}" style$="background-color: {{item.color}}; margin-top: {{addMargin(item)}}">
+						<a href="{{item.link}}"><span>{{item.title}}</span></a>
+					</div>
+				</li>
+			</template>
+		</ul>
 	</template>
 	<script src="kh-tabs.js"></script>
 </dom-module>
